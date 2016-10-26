@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Discord;
+using Discord.WebSocket;
 using System.Threading.Tasks;
 
 namespace DiscordBot {
@@ -9,8 +7,8 @@ namespace DiscordBot {
         private static string _twitch = "[Twitch Client-ID here]";
         private static string _discord = "[Discord App ID here]";
 
-        public static Task AuthDiscordConnectAsync(Discord.DiscordClient client) {
-            return client.Connect(_discord, Discord.TokenType.Bot);
+        public static Task AuthLoginAsync(DiscordSocketClient client) {
+            return client.LoginAsync(TokenType.Bot, _discord);
         }
 
         public static System.Net.Http.HttpClient CreateTwitchRequest() {
